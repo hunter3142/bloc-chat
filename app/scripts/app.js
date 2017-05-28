@@ -4,7 +4,7 @@
             .html5Mode({
                 enabled: true,
                 requireBase: false
-             });
+            });
  
         $stateProvider
             .state('home', {
@@ -15,6 +15,6 @@
     }
      
     angular
-        .module('blocChat', ['ui.router', 'firebase'])
+        .module('blocChat', ['ui.router', 'ui.bootstrap', 'firebase'])
         .config(config);
 })();

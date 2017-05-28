@@ -1,3 +1,21 @@
 <section class="rooms-sidebar">
-	<div class="rooms-container" ng-repeat="room in home.rooms">{{room.name}}</div>
+	<h2 class="rooms-sidebar-header">Bloc Chat</h2>
+	<button type="button" class="new-room-button" ng-click="home.openModal()">New Room</button>
+	<div class="rooms-container" ng-repeat="room in home.rooms">{{room.name}}</div>	
 </section>
+
+<div ng-controller="HomeCtrl as home" class="modal-new-room">
+    <script type="text/ng-template" id="newRoom.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Create new room</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <h5>Enter a room name</h5>
+            <input type="text" ng-model="roomName">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="modal.ok(this.roomName)">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="modal.cancel()">Cancel</button>
+        </div>
+    </script>
+</div>
