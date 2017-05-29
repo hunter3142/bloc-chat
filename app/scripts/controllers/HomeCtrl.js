@@ -1,11 +1,11 @@
 (function() {
 	function HomeCtrl(Room, $uibModal) {
 		this.rooms = Room.all;
+		this.selectedRoom = 
 		this.openModal = function() {
 			$uibModal.open({
-				templateUrl: 'newRoom.html',
-				controller: 'ModalCtrl',
-				controllerAs: 'modal',
+				templateUrl: '/templates/addRoomModal.html',
+				controller: 'ModalCtrl as modal'
 			});
 		};
    	}
