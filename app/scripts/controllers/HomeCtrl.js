@@ -1,7 +1,11 @@
 (function() {
-	function HomeCtrl(Room, $uibModal) {
+	function HomeCtrl(Room, Message, $uibModal) {
+		this.selectedRoom = null;
 		this.rooms = Room.all;
-		this.selectedRoom = 
+		this.updateRoom = function(room) {
+			this.selectedRoom = room;
+			this.messages = Message.getByRoomId(this.selectedRoom.$id);
+		};
 		this.openModal = function() {
 			$uibModal.open({
 				templateUrl: '/templates/addRoomModal.html',
@@ -12,5 +16,5 @@
 
    	angular
 		.module('blocChat')
-       	.controller('HomeCtrl', ['Room', '$uibModal', HomeCtrl])
+       	.controller('HomeCtrl', ['Room', 'Message', '$uibModal', HomeCtrl])
 })();

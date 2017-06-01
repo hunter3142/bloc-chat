@@ -3,11 +3,15 @@
 		<div class="rooms-sidebar col-lg-3">
 			<h2 class="rooms-sidebar-header">Bloc Chat</h2>
 			<button type="button" class="new-room-button" ng-click="home.openModal()">New Room</button>
-			<div class="rooms-container" ng-repeat="room in home.rooms">{{room.name}}</div>	
+			<div class="rooms-container" ng-repeat="room in home.rooms" ng-click="home.updateRoom(room)">{{room.name}}</div>	
 		</div>
 		<div class="room-messages-dispay col-lg-9">
-			<h2 class="selected-room-header">Room 1</h2>
+			<h2 class="selected-room-header">{{home.selectedRoom.name}}</h2>
 		</div>
+		<div class="messages-body" ng-repeat="message in home.messages">
+        	<div class="username">{{message.username}}</div>
+        	<div class="user-message">{{message.content}}</div>
+    	</div>
 	</div>
 </div>
 
