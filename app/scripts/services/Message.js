@@ -8,6 +8,15 @@
         return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
     };
 
+    Message.send = function(username, content, roomId) {
+    	messages.$add({
+    		username: username,
+    		sentAt: firebase.database.ServerValue.TIMESTAMP,
+    		content: content,
+    		roomId: roomId,
+    	})
+    };
+
     return Message;
     };
 
